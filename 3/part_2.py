@@ -12,4 +12,4 @@ with open("3/input.txt",'r',encoding = 'utf-8') as file:
 print(total_priority)
 
 # Alternative 2
-print(sum([ord(b)-(96 if b.islower() else 38) for b in [[set(f[i].strip()).intersection(set(f[i+1].strip())).intersection(set(f[i+2].strip())).pop() for i in range(0,len(f),3)] for f in [open("3/input.txt",'r',encoding='utf-8').readlines()]][0]]))
+print(sum([ord(b)-(96 if b.islower()else 38)for b in[[set(f[i].strip()).intersection(set(f[i+1].strip())).intersection(set(f[i+2].strip())).pop()for i in range(0,len(f),3)]for f in[open("3/input.txt",'r',encoding='utf-8').readlines()]][0]]))

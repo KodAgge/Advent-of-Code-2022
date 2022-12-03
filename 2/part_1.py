@@ -7,4 +7,4 @@ with open("2/input.txt",'r',encoding = 'utf-8') as file:
 print(score)
 
 # Alternative 2
-print(sum([(6 if ord(m[0])-ord(m[1]) in [-21,-24] else (3 if ord(m[0])-ord(m[1])==-23 else 0))+ord(m[1])-87 for m in [l.strip().split() for l in open("2/input.txt",'r',encoding='utf-8')]]))
+print(sum([(6 if ord(m[0])-ord(m[1])in[-21,-24]else(3 if ord(m[0])-ord(m[1])==-23 else 0))+ord(m[1])-87 for m in[l.strip().split()for l in open("2/input.txt",'r',encoding='utf-8')]]))
