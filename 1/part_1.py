@@ -12,4 +12,4 @@ with open("1/input.txt",'r',encoding = 'utf-8') as file:
 print(max_)
 
 # Alternative 2
-print(max([sum([int(snack) for snack in elf.split()]) for elf in "".join(["," if line == "\n" else line.strip() + " " for line in open("1/input.txt",'r',encoding = 'utf-8').readlines()]).split(",")]))
+print(max([sum([int(s) for s in e.split()]) for e in "".join(["," if l=="\n" else l.strip()+" " for l in open("1/input.txt",'r',encoding='utf-8').readlines()]).split(",")]))

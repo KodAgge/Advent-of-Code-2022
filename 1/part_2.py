@@ -12,4 +12,4 @@ snack_sum_list.sort(reverse=True)
 print(sum(snack_sum_list[:3]))
 
 # Alternative 2
-print(sum(sorted([sum([int(snack) for snack in elf.split()]) for elf in "".join(["," if line == "\n" else line.strip() + " " for line in open("1/input.txt",'r',encoding = 'utf-8').readlines()]).split(",")], reverse=True)[:3]))
+print(sum(sorted([sum([int(s) for s in e.split()]) for e in "".join(["," if l=="\n" else l.strip()+" " for l in open("1/input.txt",'r',encoding='utf-8').readlines()]).split(",")],reverse=1)[:3]))

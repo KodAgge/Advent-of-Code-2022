@@ -37,4 +37,4 @@ with open("2/input.txt",'r',encoding = 'utf-8') as file:
 print(score)
 
 # Alternative 3
-print(sum([((ord(m[1])-88)*3)+(ord(m[0])+(ord(m[1])-89)*(1-(3 if (ord(m[1])-ord(m[0])==23) else 0))-64) for m in [line.strip().split() for line in open("2/input.txt",'r',encoding='utf-8')]]))
+print(sum([((ord(m[1])-88)*3)+(ord(m[0])+(ord(m[1])-89)*(1-(3 if (ord(m[1])-ord(m[0])==23) else 0))-64) for m in [l.strip().split() for l in open("2/input.txt",'r',encoding='utf-8')]]))

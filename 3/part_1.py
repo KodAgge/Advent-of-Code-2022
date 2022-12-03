@@ -8,4 +8,4 @@ with open("3/input.txt",'r',encoding = 'utf-8') as file:
 print(total_priority)
 
 # Alternative 2
-print(sum([ord(set(line.strip()[:len(line.strip())//2]).intersection(set(line.strip()[len(line.strip())//2:])).pop()) - (96 if set(line.strip()[:len(line.strip())//2]).intersection(set(line.strip()[len(line.strip())//2:])).pop().islower() else 38) for line in open("3/input.txt",'r',encoding = 'utf-8')]))
+print(sum([ord(set(l.strip()[:len(l.strip())//2]).intersection(set(l.strip()[len(l.strip())//2:])).pop()) - (96 if set(l.strip()[:len(l.strip())//2]).intersection(set(l.strip()[len(l.strip())//2:])).pop().islower() else 38) for l in open("3/input.txt",'r',encoding='utf-8')]))
