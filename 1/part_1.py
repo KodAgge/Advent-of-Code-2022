@@ -1,5 +1,5 @@
 # ALternative 1
-with open("1/input.txt",'r',encoding = 'utf-8') as file:
+with open("input.txt",'r',encoding = 'utf-8') as file:
     max_ = -1
     current = 0
     for line in file:
@@ -12,4 +12,7 @@ with open("1/input.txt",'r',encoding = 'utf-8') as file:
 print(max_)
 
 # Alternative 2
-print(max([sum([int(s)for s in e.split()])for e in"".join(["," if l=="\n" else l.strip()+" "for l in open("1/input.txt",'r',encoding='utf-8')]).split(",")]))
+print(max([sum([int(s)for s in e.split()])for e in"".join(["," if l=="\n" else l.strip()+" "for l in open("input.txt",'r',encoding='utf-8')]).split(",")]))
+
+# Alternative 3
+print(max(sum(int(s)for s in e.split())for e in"".join(["," if l=="\n"else l.strip()+" "for l in open("i")]).split(",")))
