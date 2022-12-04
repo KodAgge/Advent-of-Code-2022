@@ -9,4 +9,4 @@ with open("input.txt") as file:
 print(overlaps)
 
 # Alternative 2
-print(sum((a>=x and b<=y)or(a<=x and b>=y)for(a,b),(x,y)in[[[i for i in map(int,j.split("-"))]for j in l.strip().split(",")]for l in open("i")]))
+print(sum((a>=x and b<=y)or(a<=x and b>=y)for(a,b),(x,y)in[[[i for i in map(int,j.split("-"))]for j in l[:-1].split(",")]for l in open("i")]))
