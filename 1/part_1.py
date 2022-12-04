@@ -15,4 +15,4 @@ print(max_)
 print(max([sum([int(s)for s in e.split()])for e in"".join(["," if l=="\n" else l.strip()+" "for l in open("input.txt",'r',encoding='utf-8')]).split(",")]))
 
 # Alternative 3
-print(max(sum(int(s)for s in e.split())for e in"".join(["," if l=="\n"else l.strip()+" "for l in open("i")]).split(",")))
+print(max(sum(int(s)for s in e.split())for e in"".join([","if l=="\n"else l[:-1]+" "for l in open("i")]).split(",")))
