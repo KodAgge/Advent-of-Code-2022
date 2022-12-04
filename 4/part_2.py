@@ -23,3 +23,6 @@ print(sum((len(set(list(range(a,b+1)))&set(list(range(x,y+1))))>0)for(a,b),(x,y)
 
 # Alternative 4
 print(sum(len(x&y)>0 for(x,y)in[[set(list(range(s,f+1)))for(s,f)in p]for p in[[[i for i in map(int,j.split("-"))]for j in l[:-1].split(",")]for l in open("i")]]))
+
+# Alternative 5
+print(sum((x<=a<=y or x<=b<=y)or(a<=x<=b or a<=y<=b)for(a,b),(x,y)in[[[i for i in map(int,j.split("-"))]for j in l[:-1].split(",")]for l in open("i")]))
