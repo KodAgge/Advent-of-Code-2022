@@ -29,3 +29,6 @@ print(sum((x<=a<=y or x<=b<=y)or(a<=x<=b or a<=y<=b)for(a,b),(x,y)in[[[i for i i
 
 # Alternative 6
 print(sum(x<=a<=y or x<=b<=y or a<x<b for(a,b),(x,y)in[[[i for i in map(int,j.split("-"))]for j in l[:-1].split(",")]for l in open("i")]))
+
+# Alternative 7
+print(sum(1-(a>y or b<x)for(a,b),(x,y)in[[[i for i in map(int,j.split("-"))]for j in l[:-1].split(",")]for l in open("i")]))
