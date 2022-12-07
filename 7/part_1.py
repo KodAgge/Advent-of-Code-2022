@@ -9,13 +9,13 @@ class Tree:
         return f"name: {self.name}, children: {self.children}"
 
 small_dirs = []
+NODE_CUTOFF = 100000
 
 def get_small_dirs(node):
     for child in node.children:
         get_small_dirs(child)
-    if node.storage <= 100000:
+    if node.storage <= NODE_CUTOFF:
         small_dirs.append(node.storage)
-
 
 def sum_sub_tree(node):
     for child in node.children:
@@ -50,10 +50,6 @@ with open("input.txt") as file:
         elif read_mode and inputs[0] == "$":
             read_mode = False
 
-
-
-print_tree(root)
 sum_sub_tree(root)
-print_tree(root)
 get_small_dirs(root)
 print(sum(small_dirs))

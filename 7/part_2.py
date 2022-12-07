@@ -49,17 +49,12 @@ with open("input.txt") as file:
         elif read_mode and inputs[0] == "$":
             read_mode = False
 
-
-
-print_tree(root)
+MAX_STORAGE = 70_000_000
 sum_sub_tree(root)
-print_tree(root)
 get_all_dirs(root)
-# print(sorted(all_dirs))
-available = 70_000_000 - max(all_dirs)
-print(available)
-sorted_all_dirs = sorted(all_dirs)
-for dir in sorted_all_dirs:
-    if available + dir >= 30_000_000:
+available_storage = MAX_STORAGE - max(all_dirs)
+
+for dir in sorted(all_dirs):
+    if available_storage + dir >= 30_000_000:
         print(dir)
         break
