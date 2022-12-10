@@ -7,7 +7,6 @@ def exec_stats(
     code_version: int,
     file_name: str = "input.txt"
 ) -> None:
-    print("-"*60)
     print(f"Answer day {day} part {part} (version {code_version}):")
     start = perf_counter()
     exec(code)
