@@ -16,6 +16,17 @@ def exec_stats(
     print(f"Number of characters in code excluding file name: {len(code)-len(file_name)}")
     print("-"*60)
 
+
+def exec_stats_multi(
+    code_list, 
+    day: int, 
+    part: int,
+    file_name: str
+) -> None:
+    for i, code in enumerate(code_list):
+        exec_stats(code=code, day=day, part=part, code_version=i+1, file_name=file_name)
+
+
 if __name__ == "__main__":
     code = "print('Hello World!')"
     exec_stats(code, 0, 0, 0)
