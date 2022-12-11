@@ -1,3 +1,5 @@
+import time
+
 # Part 1
 with open("10.in") as file:
     x = 1
@@ -14,11 +16,9 @@ with open("10.in") as file:
             stored_values.append(int(instruction.split()[1]))
         if (i+1-20) % 40 == 0:
             total_signal_strength += (i+1) * x
-    print(total_signal_strength)
+    print(f"Answer part 1: {total_signal_strength}")
 
 # Part 2
-import time
-
 with open("10.in") as file:
     x = 1
     stored_values = [0]
@@ -39,7 +39,7 @@ with open("10.in") as file:
             string += "  "
         if (i+1) % 40 == 0:
             string += "\n"
-    print(string)
+    print(f"Answer part 1:\n{string}")
 
 for c in string:
     print(c, end='')
