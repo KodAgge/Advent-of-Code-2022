@@ -71,7 +71,7 @@ def print_monkeys(monkeys, round):
         print(f"Monkey {monkey.number}: {monkey.items}")
 
 def parse_file(part, worry_denominator=3, worry_modulo=1):
-    with open("11.in") as file:
+    with open(file_name) as file:
         lines = file.readlines()
         monkeys = []
         for i in range(0,len(lines),7):
@@ -89,7 +89,7 @@ def parse_file(part, worry_denominator=3, worry_modulo=1):
     return monkeys
 
 def get_modulo():
-    with open("11.in") as file:
+    with open(file_name) as file:
         lines = file.readlines()
         modulo = 1
         for i in range(0,len(lines),7):
@@ -106,6 +106,8 @@ def simulate_rounds(monkeys, n_rounds):
     n_throws = [monkey.inspected_items for monkey in monkeys]
     n_throws_sorted = sorted(n_throws)
     return n_throws_sorted[-1]*n_throws_sorted[-2]
+
+file_name = "11.in"
 
 # Part 1
 monkeys = parse_file(part=1, worry_denominator=3)
