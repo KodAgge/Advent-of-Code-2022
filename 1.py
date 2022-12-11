@@ -1,5 +1,5 @@
 # Part 1
-with open("1.in") as file:
+with open("inputs/1.in") as file:
     max_ = -1
     current = 0
     for line in file:
@@ -12,7 +12,7 @@ with open("1.in") as file:
 print(f"Answer part 1: {max_}")
 
 # Part 2
-with open("1.in") as file:
+with open("inputs/1.in") as file:
     snack_sum_list = []
     current = 0
     for line in file:

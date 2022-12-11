@@ -1,5 +1,5 @@
 # Part 1
-with open("5.in") as file:
+with open("inputs/5.in") as file:
     piles = [[] for _ in range(9)]
     indices = [i for i in range(1, 36, 4)]
     read_piles = True
@@ -21,7 +21,7 @@ with open("5.in") as file:
 print(f"Answer part 1: {top_boxes}")
 
 # Part 2
-with open("5.in") as file:
+with open("inputs/5.in") as file:
     piles = [[] for _ in range(9)]
     indices = [i for i in range(1, 36, 4)]
     read_piles = True

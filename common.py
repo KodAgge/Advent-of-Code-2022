@@ -13,7 +13,7 @@ def exec_stats(
     end = perf_counter()
     print(f"\nCode execution time: {1000*(end-start):.3f}ms")
     print(f"Number of characters in code: {len(code)}")
-    print(f"Number of characters in code excluding file name: {len(code)-len(file_name)}")
+    print(f"Number of characters in code excluding file name: {len(code)-len(file_name)+2}")
     print("-"*60)
 
 

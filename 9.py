@@ -33,7 +33,7 @@ def simulate_rope(n_knots):
                 tail_positions.add(str(positions[-1]))
     return len(tail_positions)
 
-file_name = "9.in"
+file_name = "inputs/9.in"
 
 # Part 1
 print(f"Answer part 1: {simulate_rope(n_knots=2)}")

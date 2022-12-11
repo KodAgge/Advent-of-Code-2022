@@ -1,5 +1,5 @@
 # Part 1
-with open("4.in") as file:
+with open("inputs/4.in") as file:
     overlaps = 0
     for line in file:
         e1, e2 = line.strip().split(",")
@@ -9,7 +9,9 @@ with open("4.in") as file:
 print(f"Answer part 1: {overlaps}")
 
 # Part 2
-with open("4.in") as file:
+
+# Alternative 1
+with open("inputs/4.in") as file:
     overlaps = 0
     for line in file:
         e1, e2 = line.strip().split(",")
@@ -18,7 +20,8 @@ with open("4.in") as file:
         overlaps += (e2_start <= e1_start <= e2_end or e2_start <= e1_end <= e2_end) or (e1_start <= e2_start <= e1_end or e1_start <= e2_end <= e1_end)
 print(f"Answer part 2 v1: {overlaps}")
 
-with open("4.in") as file:
+# Alternative 2
+with open("inputs/4.in") as file:
     overlaps = 0
     for line in file:
         e1, e2 = line.strip().split(",")

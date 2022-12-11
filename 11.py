@@ -107,7 +107,7 @@ def simulate_rounds(monkeys, n_rounds):
     n_throws_sorted = sorted(n_throws)
     return n_throws_sorted[-1]*n_throws_sorted[-2]
 
-file_name = "11.in"
+file_name = "inputs/11.in"
 
 # Part 1
 monkeys = parse_file(part=1, worry_denominator=3)

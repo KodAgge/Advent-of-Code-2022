@@ -1,7 +1,7 @@
 import time
 
 # Part 1
-with open("10.in") as file:
+with open("inputs/10.in") as file:
     x = 1
     stored_values = [0]
     total_signal_strength = 0
@@ -19,7 +19,7 @@ with open("10.in") as file:
     print(f"Answer part 1: {total_signal_strength}")
 
 # Part 2
-with open("10.in") as file:
+with open("inputs/10.in") as file:
     x = 1
     stored_values = [0]
     total_signal_strength = 0

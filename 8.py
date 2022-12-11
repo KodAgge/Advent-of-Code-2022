@@ -1,7 +1,7 @@
 import numpy as np
 
 # Part 1
-with open("8.in") as file:
+with open("inputs/8.in") as file:
     matrix = []
     for line in file:
         matrix.append(list(map(int, list(line.strip()))))

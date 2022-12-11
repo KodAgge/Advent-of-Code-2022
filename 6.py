@@ -1,5 +1,5 @@
 # Part 1
-with open("6.in") as file:
+with open("inputs/6.in") as file:
     for line in file:
         for i in range(4,len(line)):
             if len(set([*line[i-4:i]])) == 4:
@@ -7,7 +7,7 @@ with open("6.in") as file:
                 break
 
 # Part 2
-with open("6.in") as file:
+with open("inputs/6.in") as file:
     for line in file:
         for i in range(14,len(line)):
             if len(set([*line[i-14:i]])) == 14:

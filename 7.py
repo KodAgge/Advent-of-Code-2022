@@ -54,7 +54,7 @@ def execute_instructions():
                 read_mode = False
     return root
 
-file_name = "7.in"
+file_name = "inputs/7.in"
 
 # Part 1
 small_dirs = []

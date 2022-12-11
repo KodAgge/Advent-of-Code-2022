@@ -1,5 +1,5 @@
 # Part 1
-with open("3.in") as file:
+with open("inputs/3.in") as file:
     total_priority = 0
     for line in file:
         items = line.strip()
@@ -8,7 +8,7 @@ with open("3.in") as file:
 print(f"Answer part 1: {total_priority}")
 
 # Part 2
-with open("3.in") as file:
+with open("inputs/3.in") as file:
     total_priority = 0
     group_items = []
     for i, line in enumerate(file):
