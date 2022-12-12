@@ -1,19 +1,20 @@
 from collections import deque
 
 def parse_file():
-    height_map = [list(x) for x in open(file_name).read().strip().splitlines()]
-
+    height_map = [list(map(ord,list(x))) for x in open(file_name).read().strip().splitlines()]
     for r, row in enumerate(height_map):
-        for c, item in enumerate(row):
-            if item == "S":
+        for c, height in enumerate(row):
+            if height == ord("S"):
                 start_row = r
                 start_column = c
-                height_map[r][c] = "a"
-            if item == "E":
+                height_map[r][c] = ord("a")
+            if height == ord("E"):
                 end_row = r
                 end_column = c
-                height_map[r][c] = "z"
+                height_map[r][c] = ord("z")
 
+    height_map = [[height - ord("a") for height in row] for row in height_map]
+    
     return (start_row, start_column), (end_row, end_column), height_map
 
 def get_possible_coordinates(row, column, height_map, visited, part):
@@ -22,10 +23,10 @@ def get_possible_coordinates(row, column, height_map, visited, part):
         if new_row >= MIN_ROW and new_column >= MIN_COLUMN and new_row < MAX_ROW and new_column < MAX_COLUM:
             if (new_row, new_column) not in visited:
                 if part == 1:
-                    if ord(height_map[new_row][new_column]) - ord(height_map[row][column]) <= 1:
+                    if height_map[new_row][new_column] - height_map[row][column] <= 1:
                         possible_coordinates.append((new_row, new_column))
                 elif part == 2:
-                    if ord(height_map[new_row][new_column]) - ord(height_map[row][column]) >= -1:
+                    if height_map[new_row][new_column] - height_map[row][column] >= -1:
                         possible_coordinates.append((new_row, new_column))
     return possible_coordinates
 
@@ -45,7 +46,7 @@ def find_route(height_map, part = 1, start = (0, 0), end = (0, 0)):
                 if new_row == end_row and new_column == end_column:
                     return steps + 1
             elif part == 2:
-                if height_map[new_row][new_column] == "a":
+                if height_map[new_row][new_column] == 0:
                     return steps + 1
             visited.add((new_row, new_column))
             queue.append((steps + 1, new_row, new_column))
