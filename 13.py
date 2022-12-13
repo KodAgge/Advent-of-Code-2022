@@ -1,13 +1,13 @@
 def parse_file_part_1(file_name):
     with open(file_name) as file:
-        left = []
-        right = []
+        left_packets = []
+        right_packets = []
         for i, line in enumerate(file):
             if i % 3 == 0:
-                left.append(eval(line))
+                left_packets.append(eval(line))
             elif i % 3 == 1:
-                right.append(eval(line))
-    return left, right
+                right_packets.append(eval(line))
+    return left_packets, right_packets
 
 def compare_lists(left, right):
     # If both are int, return difference in value
@@ -71,10 +71,10 @@ def compare_lists_print(left, right, level = 0):
     return length_diff
 
 
-def get_index_sum(left, right):
+def get_index_sum(left_packets, right_packets):
     index_sum = 0
-    for i, (l, r) in enumerate(zip(left, right)):
-        if compare_lists(l, r) < 0:
+    for i, (left_packet, right_packet) in enumerate(zip(left_packets, right_packets)):
+        if compare_lists(left_packet, right_packet) <= 0:
             index_sum += i + 1
     return index_sum
 
@@ -94,20 +94,18 @@ def multiply_list(list):
 
 def locate_divider_packets(packets, divider_packets):
     divider_packets = sorted(divider_packets)
-    divider_packet_indices = [1 for _ in divider_packets]
-
+    divider_packet_indices = [i+1 for i in range(len(divider_packets))]
     for packet in packets:
         for i, divider_packet in enumerate(divider_packets):
             if compare_lists(packet, divider_packet) < 0:
                 divider_packet_indices[i] += 1
-
     return multiply_list(divider_packet_indices)
 
 file_name = "inputs/13.in"
 
 # Part 1
-left, right = parse_file_part_1(file_name)
-print(f"Answer part 1: {get_index_sum(left, right)}")
+left_packets, right_packets = parse_file_part_1(file_name)
+print(f"Answer part 1: {get_index_sum(left_packets, right_packets)}")
 
 # Part 2
 packets = parse_file_part_2(file_name)
