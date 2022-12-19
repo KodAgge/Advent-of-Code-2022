@@ -1,6 +1,6 @@
 from common import load_file
 
-def find_optimal_max_amount_geodes(
+def find_max_amount_geodes(
     ore_robot_ore, 
     clay_robot_ore, 
     obsidian_robot_ore, obsidian_robot_clay, 
@@ -140,7 +140,7 @@ T = 24
 quality_level_sum = 0
 print("Part 1:")
 for i, (ore_robot_ore, clay_robot_ore, obsidian_robot_ore, obsidian_robot_clay, geode_robot_ore, geode_robot_obsidian) in enumerate(parsed_lines):
-    max_geode = find_optimal_max_amount_geodes(
+    max_geode = find_max_amount_geodes(
                     ore_robot_ore, 
                     clay_robot_ore, 
                     obsidian_robot_ore, obsidian_robot_clay, 
@@ -157,7 +157,7 @@ T = 32
 quality_produdct = 1
 print("\nPart 2:")
 for i, (ore_robot_ore, clay_robot_ore, obsidian_robot_ore, obsidian_robot_clay, geode_robot_ore, geode_robot_obsidian) in enumerate(parsed_lines[:3]):
-    max_geode = find_optimal_max_amount_geodes(
+    max_geode = find_max_amount_geodes(
                     ore_robot_ore, 
                     clay_robot_ore, 
                     obsidian_robot_ore, obsidian_robot_clay, 
