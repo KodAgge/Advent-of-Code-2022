@@ -26,19 +26,10 @@ def find_optimal_max_amount_geodes(
             continue
 
         # To speed up the calculation, we want to reduce the state space, which would make it more likely to skip a state.
-        # First, we can cap the number of non-geode robots since only one robot can be produced at a time,
-        # and after a while, it will only be worth to produce geode robots.
-        # Second, we can cap the amount of ore, clay, and obsidian since there is only a maximum amount of it that
+        # First, we can cap the amount of ore, clay, and obsidian since there is only a maximum amount of it that
         # can be used productively until the time is up.
-
-        # No need to build more ore robots than the most exepnsive ore recipe, since robots are built one at a time
-        ore_robots = min(ore_robots, most_expensive_ore_recipe)
-
-        # No need to build more clay robots when there is as many as the cost for the obsidian robot
-        clay_robots = min(clay_robots, obsidian_robot_clay)
-        
-        # No need to build more obsidian robots when there is as many as the cost for the geode robot
-        obsidian_robots = min(obsidian_robots, geode_robot_obsidian)
+        # Second, we can cap the number of non-geode robots since only one robot can be produced at a time,
+        # and after a while, it will only be worth to produce geode robots.
 
         # No need to keep track of more ore than can be spent during the remaining time,
         # which is the most expensive ore recipe times the time left.
@@ -80,47 +71,53 @@ def find_optimal_max_amount_geodes(
 
         # Build an ore robot
         if ore >= ore_robot_ore:
-            queue.append(
-                (ore + ore_robots - ore_robot_ore, 
-                clay + clay_robots, 
-                obsidian + obsidian_robots, 
-                geode + geode_robots, 
-                ore_robots + 1, 
-                clay_robots, 
-                obsidian_robots, 
-                geode_robots, 
-                time - 1)
-            )
+            # No need to build more ore robots than the most exepnsive ore recipe, since robots are built one at a time
+            if ore_robots < most_expensive_ore_recipe:
+                queue.append(
+                    (ore + ore_robots - ore_robot_ore, 
+                    clay + clay_robots, 
+                    obsidian + obsidian_robots, 
+                    geode + geode_robots, 
+                    ore_robots + 1, 
+                    clay_robots, 
+                    obsidian_robots, 
+                    geode_robots, 
+                    time - 1)
+                )
 
-        # Build a clay robot
+        # Build a clay robot?
         if ore >= clay_robot_ore:
-            queue.append(
-                (ore + ore_robots - clay_robot_ore, 
-                clay + clay_robots, 
-                obsidian + obsidian_robots, 
-                geode + geode_robots, 
-                ore_robots, 
-                clay_robots + 1, 
-                obsidian_robots, 
-                geode_robots, 
-                time - 1)
-            )
+            # No need to build more clay robots when there is as many as the cost for the obsidian robot
+            if clay_robots < obsidian_robot_clay:
+                queue.append(
+                    (ore + ore_robots - clay_robot_ore, 
+                    clay + clay_robots, 
+                    obsidian + obsidian_robots, 
+                    geode + geode_robots, 
+                    ore_robots, 
+                    clay_robots + 1, 
+                    obsidian_robots, 
+                    geode_robots, 
+                    time - 1)
+                )
 
-        # Build an obisidan robot
+        # Build an obisidan robot?
         if ore >= obsidian_robot_ore and clay >= obsidian_robot_clay:
-            queue.append(
-                (ore + ore_robots - obsidian_robot_ore, 
-                clay + clay_robots - obsidian_robot_clay, 
-                obsidian + obsidian_robots, 
-                geode + geode_robots, 
-                ore_robots, 
-                clay_robots, 
-                obsidian_robots + 1, 
-                geode_robots, 
-                time - 1)
-            )
+            # No need to build more obsidian robots when there is as many as the cost for the geode robot
+            if obsidian_robots < geode_robot_obsidian:
+                queue.append(
+                    (ore + ore_robots - obsidian_robot_ore, 
+                    clay + clay_robots - obsidian_robot_clay, 
+                    obsidian + obsidian_robots, 
+                    geode + geode_robots, 
+                    ore_robots, 
+                    clay_robots, 
+                    obsidian_robots + 1, 
+                    geode_robots, 
+                    time - 1)
+                )
 
-        # Build a geode robot
+        # Build a geode robot?
         if ore >= geode_robot_ore and obsidian >= geode_robot_obsidian:
             queue.append(
                 (ore + ore_robots - geode_robot_ore, 
