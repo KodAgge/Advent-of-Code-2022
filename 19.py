@@ -69,7 +69,7 @@ def find_max_amount_geodes(
                 time - 1)
             )
 
-        # Build an ore robot
+        # Build an ore robot?
         if ore >= ore_robot_ore:
             # No need to build more ore robots than the most exepnsive ore recipe, since robots are built one at a time
             if ore_robots < most_expensive_ore_recipe:
